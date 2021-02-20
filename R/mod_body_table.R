@@ -12,8 +12,8 @@ mod_body_table_ui <- function(id){
   tagList(
  shinydashboard::box(width = 3,
      list(
-      shiny::selectInput("s1","S1",1:3),
-      shiny::selectInput("s2","S2", 4:6)
+      shinyWidgets::airDatepickerInput("s1","Pick a date"),
+      shiny::selectInput("s2","Sector", c("Supermarkets","Pharmacy"))
      )),
  shinydashboard::box(width = 9, DT::dataTableOutput(ns("table")))
   )

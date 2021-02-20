@@ -9,7 +9,9 @@
 #' @importFrom shiny NS tagList 
 #' 
 title<-function(name){
-  shiny::tags$a(href="https://osdashboard.shinyapps.io/Dashboard/",name)
+  shiny::tags$a(href="https://osdashboard.shinyapps.io/Dashboard/",
+                shiny::tags$img(src="www/logo.jpg", class="img-circle", height='40'),
+                name)
 }
 mod_header_ui <- function(id){
   ns <- NS(id)

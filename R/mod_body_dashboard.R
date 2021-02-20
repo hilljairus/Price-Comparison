@@ -11,9 +11,9 @@ mod_body_dashboard_ui <- function(id){
   ns <- NS(id)
   tagList(
     fluidRow(
-      shinydashboard::infoBoxOutput(ns("number_of_data")),
-      shinydashboard::infoBoxOutput(ns("number_week_promotion")),
-      shinydashboard::infoBoxOutput(ns("shop_of_the_week"))
+      shinydashboard::valueBoxOutput(ns("number_of_data")),
+      shinydashboard::valueBoxOutput(ns("number_week_promotion")),
+      shinydashboard::valueBoxOutput(ns("shop_of_the_week"))
     ),
     fluidRow(
         shinydashboard::box(title = "This week's summary",width = 6,
@@ -35,14 +35,14 @@ mod_body_dashboard_ui <- function(id){
 #' @noRd 
 mod_body_dashboard_server <- function(input, output, session){
   ns <- session$ns
- output$number_of_data<-renderInfoBox(
-   infoBox(title = "Number of Research conducted")
+ output$number_of_data<-shinydashboard::renderValueBox(
+   shinydashboard::valueBox(8,"Number of Research conducted")
  )
- output$number_week_promotion<-renderInfoBox(
-   infoBox(title = "Promotions this week")
+ output$number_week_promotion<-shinydashboard::renderValueBox(
+   shinydashboard::valueBox(5, "Promotions this week",color = "purple")
  )
- output$shop_of_the_week<-renderInfoBox(
-   infoBox(title = "Cheapest Shop")
+ output$shop_of_the_week<-shinydashboard::renderValueBox(
+   shinydashboard::valueBox("Naivas","Cheapest Shop",color ="yellow")
  )
 }
     

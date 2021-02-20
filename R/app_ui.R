@@ -44,9 +44,10 @@ golem_add_external_resources <- function(){
     bundle_resources(
       path = app_sys('app/www'),
       app_title = 'beiyaukweli'
-    )
+    ),
     # Add here other external resources
-    # for example, you can add shinyalert::useShinyalert() 
+    shinybusy::add_busy_spinner(color="#F4F6F7",spin = "fading-circle"),
+    tags$link(rel="stylesheet", type="text/css", href="www/custom.css")
   )
 }
 
